@@ -1,33 +1,24 @@
-package com.example.baitap
-import androidx.compose.material3.TextField
+package com.example.baitap.tuan2
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
+import com.example.baitap.R
 
 @Composable
-fun PassFieldScreen(navController: NavController) {
+fun ImageScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -53,7 +44,7 @@ fun PassFieldScreen(navController: NavController) {
 
             // Text centered within the row
             Text(
-                text = "TextField",
+                text = "Image",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Red,
@@ -62,25 +53,10 @@ fun PassFieldScreen(navController: NavController) {
                     .wrapContentWidth(Alignment.CenterHorizontally) // Centers text inside its column
             )
         }
-        var pass by remember { mutableStateOf("") }
-        var passwordVisible by remember { mutableStateOf(false) }
-        TextField(
-            value = pass,
-            onValueChange = {pass = it},
-            label = { "Password" },
-            singleLine = true,
-            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation('*'),
 
-            modifier = Modifier.fillMaxWidth(),
-            trailingIcon = {
-                IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(
-                        imageVector = if (passwordVisible) Icons.Default.ArrowBack else Icons.Default.ArrowForward,
-                        contentDescription = "Toggle Password Visibility"
-                    )
-                }
-            },
-
+        Image(
+            painter = painterResource(id = R.drawable.image1_foreground),
+            contentDescription = "Hinh anh"
         )
 
     }

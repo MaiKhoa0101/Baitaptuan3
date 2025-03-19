@@ -13,19 +13,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
+import com.example.baitap.tuan2.GetStarted1
+import com.example.baitap.tuan2.GetStarted2
+import com.example.baitap.tuan2.GetStarted3
+import com.example.baitap.tuan2.ImageScreen
+import com.example.baitap.tuan2.LayoutScreen
+import com.example.baitap.tuan2.PassFieldScreen
+import com.example.baitap.tuan2.SplashScreen
+import com.example.baitap.tuan2.TextFieldScreen
+import com.example.baitap.tuan2.TextScreen
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppNavigation()
+            //AppNavigation()
             //AppNavigation2()
+            AppNavigation3()
         }
     }
 }
@@ -112,7 +121,6 @@ fun AppNavigation() {
         composable("textfield") { TextFieldScreen(navController) }
         composable("passwordfield") { PassFieldScreen(navController) }
         composable("layout") { LayoutScreen(navController) }
-
     }
 
 }

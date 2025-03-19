@@ -1,6 +1,5 @@
-package com.example.baitap
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+package com.example.baitap.tuan2
+import androidx.compose.material3.TextField
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -14,6 +13,10 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 
 @Composable
-fun ImageScreen(navController: NavController) {
+fun TextFieldScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -47,7 +50,7 @@ fun ImageScreen(navController: NavController) {
 
             // Text centered within the row
             Text(
-                text = "Image",
+                text = "TextField",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Red,
@@ -56,10 +59,11 @@ fun ImageScreen(navController: NavController) {
                     .wrapContentWidth(Alignment.CenterHorizontally) // Centers text inside its column
             )
         }
-
-        Image(
-            painter = painterResource(id = R.drawable.image1_foreground),
-            contentDescription = "Hinh anh"
+        var text by remember { mutableStateOf("") }
+        TextField(
+            value = text,
+            onValueChange = {text = it},
+            label = { Text("Label") }
         )
 
     }

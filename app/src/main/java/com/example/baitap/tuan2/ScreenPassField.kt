@@ -1,9 +1,10 @@
-package com.example.baitap
+package com.example.baitap.tuan2
 import androidx.compose.material3.TextField
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.filled.ArrowForward
+
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,10 +22,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.navigation.NavController
 
 @Composable
-fun TextFieldScreen(navController: NavController) {
+fun PassFieldScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -59,11 +62,25 @@ fun TextFieldScreen(navController: NavController) {
                     .wrapContentWidth(Alignment.CenterHorizontally) // Centers text inside its column
             )
         }
-        var text by remember { mutableStateOf("") }
+        var pass by remember { mutableStateOf("") }
+        var passwordVisible by remember { mutableStateOf(false) }
         TextField(
-            value = text,
-            onValueChange = {text = it},
-            label = { Text("Label") }
+            value = pass,
+            onValueChange = {pass = it},
+            label = { "Password" },
+            singleLine = true,
+            visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation('*'),
+
+            modifier = Modifier.fillMaxWidth(),
+            trailingIcon = {
+                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                    Icon(
+                        imageVector = if (passwordVisible) Icons.Default.ArrowBack else Icons.Default.ArrowForward,
+                        contentDescription = "Toggle Password Visibility"
+                    )
+                }
+            },
+
         )
 
     }
