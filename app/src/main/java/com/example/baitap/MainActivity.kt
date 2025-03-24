@@ -26,15 +26,22 @@ import com.example.baitap.tuan2.PassFieldScreen
 import com.example.baitap.tuan2.SplashScreen
 import com.example.baitap.tuan2.TextFieldScreen
 import com.example.baitap.tuan2.TextScreen
+import com.example.baitap.tuan3.AppNavigation3
+import com.example.baitap.tuan3.AppNavigation4
+import com.example.baitap.tuan3.AppNavigation5
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            //Tuan2
             //AppNavigation()
             //AppNavigation2()
-            AppNavigation3()
+            //Tuan3
+            //AppNavigation3()
+            //AppNavigation4()
+            AppNavigation5()
         }
     }
 }
