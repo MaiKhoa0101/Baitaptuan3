@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Baitap"
+rootProject.name = "baitapmobile"
 include(":app")
  
